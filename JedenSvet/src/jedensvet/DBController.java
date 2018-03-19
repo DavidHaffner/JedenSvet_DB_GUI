@@ -15,16 +15,16 @@ public class DBController {
 
     // zatím bez SQL Injection - tj. nebezpečný kód!
     
-    public void doInsertToFilm(String jmenoFilmu, int rok, String reziser, String popis) {
+    public void doInsertToFilm(String jmenoFilmu, String rok, String reziser, String popis) {
 
-       try (Connection spojeni = DriverManager.getConnection("jdbc:mysql://localhost/jeden_svet?user=root&password=1111");
+       try (Connection spojeni = DriverManager.getConnection("jdbc:mysql://localhost:3306/jeden_svet?user=root&password=chelsea");
         PreparedStatement dotaz = spojeni.prepareStatement("INSERT INTO film (jmeno_filmu, rok, reziser, popis) VALUES (?, ?, ?, ?)");) {
-        dotaz.setString(2, jmenoFilmu);
-        dotaz.setString(3, Integer.toString(rok));
-        dotaz.setString(4, reziser);
-        dotaz.setString(5, popis);
+        dotaz.setString(1, jmenoFilmu);
+        dotaz.setString(2, rok);
+        dotaz.setString(3, reziser);
+        dotaz.setString(4, popis);
         int radku = dotaz.executeUpdate();
-        System.out.println(radku);
+        System.out.printf("Do DB uloženo %d řádků.\n", radku);
         } catch (SQLException ex) {
             System.out.println("Chyba při komunikaci s databází");
         }
