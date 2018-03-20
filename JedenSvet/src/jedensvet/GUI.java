@@ -33,11 +33,33 @@ public class GUI extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jmenoFilmu = new javax.swing.JTextField();
-        rok = new javax.swing.JTextField();
-        reziser = new javax.swing.JTextField();
-        popis = new javax.swing.JTextField();
-        insertFilm = new javax.swing.JButton();
+        jmenoFilmuInsert = new javax.swing.JTextField();
+        rokInsert = new javax.swing.JTextField();
+        reziserInsert = new javax.swing.JTextField();
+        popisInsert = new javax.swing.JTextField();
+        insertFilmButton = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jmenoFilmuSelect = new javax.swing.JTextField();
+        rokSelect = new javax.swing.JTextField();
+        reziserSelect = new javax.swing.JTextField();
+        popisSelect = new javax.swing.JTextField();
+        selectFilmButton = new javax.swing.JButton();
+        vyhledaniFilmuResponse = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jmenoFilmuUpdate = new javax.swing.JTextField();
+        rokUpdate = new javax.swing.JTextField();
+        reziserUpdate = new javax.swing.JTextField();
+        popisUpdate = new javax.swing.JTextField();
+        updateFilmButton = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -58,88 +80,230 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel6.setText("Popis:");
 
-        jmenoFilmu.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jmenoFilmuInsert.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        rok.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        rokInsert.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        reziser.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        reziserInsert.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        popis.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        popisInsert.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        insertFilm.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        insertFilm.setText("Vložit do DB");
-        insertFilm.addActionListener(new java.awt.event.ActionListener() {
+        insertFilmButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        insertFilmButton.setText("Vložit do DB");
+        insertFilmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertFilmActionPerformed(evt);
+                insertFilmButtonActionPerformed(evt);
             }
         });
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setText("Vyhledání filmu:");
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel8.setText("Jméno filmu:");
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel9.setText("Rok:");
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel10.setText("Režisér:");
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel11.setText("Popis:");
+
+        jmenoFilmuSelect.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jmenoFilmuSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenoFilmuSelectActionPerformed(evt);
+            }
+        });
+
+        rokSelect.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        reziserSelect.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        popisSelect.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        selectFilmButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        selectFilmButton.setText("Vyhledat v DB");
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel12.setText("Úprava údajů o filmu:");
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel13.setText("(ve Vyhledání filmu musí být pouze jeden vybraný film)");
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel14.setText("Nové jméno filmu:");
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel15.setText("Nový rok:");
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel16.setText("Nový režisér:");
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel17.setText("Nový popis:");
+
+        jmenoFilmuUpdate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        rokUpdate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        reziserUpdate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        popisUpdate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        updateFilmButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        updateFilmButton.setText("Změnit záznam");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(103, 103, 103)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(60, 60, 60)
-                        .addComponent(reziser))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(72, 72, 72)
-                        .addComponent(popis))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 195, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11))
+                                .addGap(59, 59, 59)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jmenoFilmuSelect)
+                                    .addComponent(rokSelect)
+                                    .addComponent(reziserSelect)
+                                    .addComponent(popisSelect)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5))
+                                .addGap(84, 84, 84)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(popisInsert)
+                                    .addComponent(reziserInsert)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(106, 106, 106)
+                                .addComponent(rokInsert, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(57, 57, 57)
+                                .addComponent(jmenoFilmuInsert, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(insertFilmButton)
+                            .addComponent(selectFilmButton))
+                        .addGap(76, 76, 76))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(36, 36, 36)
+                            .addComponent(jLabel7)
+                            .addComponent(vyhledaniFilmuResponse, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jmenoFilmu)
-                            .addComponent(rok))))
-                .addGap(190, 190, 190))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(insertFilm)
-                .addGap(237, 237, 237))
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel17))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jmenoFilmuUpdate)
+                                    .addComponent(rokUpdate)
+                                    .addComponent(reziserUpdate)
+                                    .addComponent(popisUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                                .addGap(28, 28, 28)
+                                .addComponent(updateFilmButton)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel2)
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jmenoFilmu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jmenoFilmuInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(rok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(rokInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(insertFilmButton)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(reziser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(reziserInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(popis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(insertFilm)
-                .addContainerGap(74, Short.MAX_VALUE))
+                    .addComponent(popisInsert, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jmenoFilmuSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(rokSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectFilmButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(reziserSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(popisSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(vyhledaniFilmuResponse, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jmenoFilmuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rokUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(updateFilmButton)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(reziserUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(popisUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void insertFilmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertFilmActionPerformed
+    private void insertFilmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertFilmButtonActionPerformed
         DBController dBController = new DBController();
-        dBController.doInsertToFilm(jmenoFilmu.getText(), rok.getText(),
-                reziser.getText(), popis.getText());
-    }//GEN-LAST:event_insertFilmActionPerformed
+        dBController.doInsertToFilm(jmenoFilmuInsert.getText(), rokInsert.getText(),
+                reziserInsert.getText(), popisInsert.getText());
+    }//GEN-LAST:event_insertFilmButtonActionPerformed
+
+    private void jmenoFilmuSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenoFilmuSelectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmenoFilmuSelectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,16 +341,38 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton insertFilm;
+    private javax.swing.JButton insertFilmButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jmenoFilmu;
-    private javax.swing.JTextField popis;
-    private javax.swing.JTextField reziser;
-    private javax.swing.JTextField rok;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jmenoFilmuInsert;
+    private javax.swing.JTextField jmenoFilmuSelect;
+    private javax.swing.JTextField jmenoFilmuUpdate;
+    private javax.swing.JTextField popisInsert;
+    private javax.swing.JTextField popisSelect;
+    private javax.swing.JTextField popisUpdate;
+    private javax.swing.JTextField reziserInsert;
+    private javax.swing.JTextField reziserSelect;
+    private javax.swing.JTextField reziserUpdate;
+    private javax.swing.JTextField rokInsert;
+    private javax.swing.JTextField rokSelect;
+    private javax.swing.JTextField rokUpdate;
+    private javax.swing.JButton selectFilmButton;
+    private javax.swing.JButton updateFilmButton;
+    private javax.swing.JTextField vyhledaniFilmuResponse;
     // End of variables declaration//GEN-END:variables
 }
