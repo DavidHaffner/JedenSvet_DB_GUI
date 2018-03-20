@@ -17,7 +17,7 @@ public class DBController {
     
     public void doInsertToFilm(String jmenoFilmu, String rok, String reziser, String popis) {
 
-       try (Connection spojeni = DriverManager.getConnection("jdbc:mysql://localhost:3306/jeden_svet?user=root&password=chelsea");
+       try (Connection spojeni = DriverManager.getConnection("jdbc:mysql://localhost:3306/jeden_svet?user=root&password=1111");
         PreparedStatement dotaz = spojeni.prepareStatement("INSERT INTO film (jmeno_filmu, rok, reziser, popis) VALUES (?, ?, ?, ?)");) {
         dotaz.setString(1, jmenoFilmu);
         dotaz.setString(2, rok);
