@@ -5,12 +5,19 @@
  */
 package jedensvet;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author dhaffner
  */
 public class GUI extends javax.swing.JFrame {
 
+    DBController dBController = new DBController();
+    
     /**
      * Creates new form GUI
      */
@@ -126,6 +133,11 @@ public class GUI extends javax.swing.JFrame {
 
         selectFilmButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         selectFilmButton.setText("Vyhledat v DB");
+        selectFilmButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectFilmButtonMouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel12.setText("Úprava údajů o filmu:");
@@ -296,14 +308,37 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void insertFilmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertFilmButtonActionPerformed
-        DBController dBController = new DBController();
         dBController.doInsertToFilm(jmenoFilmuInsert.getText(), rokInsert.getText(),
                 reziserInsert.getText(), popisInsert.getText());
     }//GEN-LAST:event_insertFilmButtonActionPerformed
 
+    /*
+    private void selectFilmButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        
+    }                                                
+    */
+    
     private void jmenoFilmuSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenoFilmuSelectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jmenoFilmuSelectActionPerformed
+
+    private void selectFilmButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectFilmButtonMouseClicked
+        ResultSet vysledky = dBController.doSelectFromFilm(jmenoFilmuSelect.getText(), rokSelect.getText(),
+                reziserSelect.getText(), popisSelect.getText());
+        
+        try {
+            while (vysledky.next()) {
+                String jmenoFilmu = vysledky.getString("jmeno_filmu");
+                String rok = vysledky.getString("rok");
+                String reziser = vysledky.getString("reziser");
+                String popis = vysledky.getString("popis");
+                vyhledaniFilmuResponse.setText("jméno filmu: " + jmenoFilmu + ", rok: "
+                        + rok + ", režisér: " + reziser + ", popis: " + popis);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_selectFilmButtonMouseClicked
 
     /**
      * @param args the command line arguments
