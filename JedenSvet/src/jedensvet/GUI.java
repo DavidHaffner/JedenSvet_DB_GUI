@@ -133,9 +133,9 @@ public class GUI extends javax.swing.JFrame {
 
         selectFilmButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         selectFilmButton.setText("Vyhledat v DB");
-        selectFilmButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectFilmButtonMouseClicked(evt);
+        selectFilmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectFilmButtonActionPerformed(evt);
             }
         });
 
@@ -322,7 +322,7 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jmenoFilmuSelectActionPerformed
 
-    private void selectFilmButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectFilmButtonMouseClicked
+    private void selectFilmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFilmButtonActionPerformed
         ResultSet vysledky = dBController.doSelectFromFilm(jmenoFilmuSelect.getText(), rokSelect.getText(),
                 reziserSelect.getText(), popisSelect.getText());
         
@@ -333,12 +333,12 @@ public class GUI extends javax.swing.JFrame {
                 String reziser = vysledky.getString("reziser");
                 String popis = vysledky.getString("popis");
                 vyhledaniFilmuResponse.setText("jméno filmu: " + jmenoFilmu + ", rok: "
-                        + rok + ", režisér: " + reziser + ", popis: " + popis);
+                        + rok + ", režisér: " + reziser + ", popis: " + popis + "\n");
             }
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_selectFilmButtonMouseClicked
+    }//GEN-LAST:event_selectFilmButtonActionPerformed
 
     /**
      * @param args the command line arguments
