@@ -26,7 +26,7 @@ public class DBController implements IDBController {
             dotaz.setString(3, reziser);
             dotaz.setString(4, popis);
             int radku = dotaz.executeUpdate();
-            System.out.printf("Do DB uloženo %d řádků.\n", radku);
+            System.out.printf("Do DB uloženo řádků: %d.\n", radku);
         } catch (SQLException ex) {
             System.out.println("Chyba při komunikaci s databází - insert.");
         }
@@ -88,9 +88,11 @@ public class DBController implements IDBController {
                 dotaz.setString(i+1, selectParams[i]);
             }
             ResultSet vysledky = dotaz.executeQuery();
+            System.out.println(dotaz);
 
             while (vysledky.next()) {
-                selectResult += "jméno filmu: " + vysledky.getString("jmeno_filmu")
+                selectResult += "id filmu: " + vysledky.getString("idfilm")
+                        + ", jméno filmu: " + vysledky.getString("jmeno_filmu")
                         + ", rok: " + vysledky.getString("rok")
                         + ", režisér: " + vysledky.getString("reziser")
                         + ", popis: " + vysledky.getString("popis")
@@ -105,7 +107,50 @@ public class DBController implements IDBController {
     }
 
     @Override
-    public void doUpdateToFilm(String jmenoFilmu, String rok, String reziser, String popis) {
+    public void doUpdateToFilm(String idFilmu, String jmenoFilmu, String rok, String reziser, String popis) {
 
+        String updateText = "UPDATE film SET";
+        
+        int count = 0;
+        String [] updateParams = new String[4];
+        
+        if (!"".equals(jmenoFilmu)) {
+            updateText += " jmeno_filmu =?";
+            updateParams[count] = jmenoFilmu;
+            count++;
+        }
+        if (!"".equals(rok)) {
+            if (count != 0) {updateText += ",";}
+            updateText += " rok =?";
+            updateParams[count] = rok;
+            count++;
+        }    
+        if (!"".equals(reziser)) {
+            if (count != 0) {updateText += ",";}
+            updateText += " reziser =?";
+            updateParams[count] = reziser;
+            count++;
+        }
+        if (!"".equals(popis)) {
+            if (count != 0) {updateText += ",";}
+            updateText += " popis =?";
+            updateParams[count] = popis;
+            count++;
+        }
+        updateText += " WHERE idfilm =?;";
+        
+        try (Connection spojeni = DriverManager.getConnection(DB_PATH);
+                PreparedStatement dotaz = spojeni.prepareStatement(updateText);) {
+                
+            for (int i=0; i<count; i++) {
+                dotaz.setString(i+1, updateParams[i]);
+            }
+            dotaz.setString(count+1, idFilmu);
+            int radku = dotaz.executeUpdate();
+            System.out.printf("V DB přepsáno řádků: %d.\n", radku);
+            
+        } catch (SQLException ex) {
+            System.out.println("Chyba při komunikaci s databází - update.");
+        }
     }
 }

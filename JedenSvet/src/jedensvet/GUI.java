@@ -57,7 +57,6 @@ public class GUI extends javax.swing.JFrame {
         selectFilmButton = new javax.swing.JButton();
         vyhledaniFilmuResponse = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -67,6 +66,8 @@ public class GUI extends javax.swing.JFrame {
         reziserUpdate = new javax.swing.JTextField();
         popisUpdate = new javax.swing.JTextField();
         updateFilmButton = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        idFilmuUpdate = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
@@ -142,9 +143,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel12.setText("Úprava údajů o filmu:");
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel13.setText("(ve Vyhledání filmu musí být pouze jeden vybraný film)");
-
         jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel14.setText("Nové jméno filmu:");
 
@@ -167,6 +165,16 @@ public class GUI extends javax.swing.JFrame {
 
         updateFilmButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         updateFilmButton.setText("Změnit záznam");
+        updateFilmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateFilmButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel18.setText("Id filmu:");
+
+        idFilmuUpdate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,22 +226,25 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
                             .addComponent(jLabel12)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14)
                                     .addComponent(jLabel15)
                                     .addComponent(jLabel16)
-                                    .addComponent(jLabel17))
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel18))
                                 .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jmenoFilmuUpdate)
-                                    .addComponent(rokUpdate)
-                                    .addComponent(reziserUpdate)
-                                    .addComponent(popisUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
-                                .addGap(28, 28, 28)
-                                .addComponent(updateFilmButton)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jmenoFilmuUpdate)
+                                            .addComponent(rokUpdate)
+                                            .addComponent(reziserUpdate)
+                                            .addComponent(popisUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                                        .addGap(28, 28, 28)
+                                        .addComponent(updateFilmButton))
+                                    .addComponent(idFilmuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -282,17 +293,18 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(idFilmuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(jmenoFilmuUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(rokUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(updateFilmButton)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rokUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateFilmButton)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel16)
@@ -301,7 +313,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel17)
                     .addComponent(popisUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -327,6 +339,11 @@ public class GUI extends javax.swing.JFrame {
                 reziserSelect.getText(), popisSelect.getText());
         vyhledaniFilmuResponse.setText(selectResult); 
     }//GEN-LAST:event_selectFilmButtonActionPerformed
+
+    private void updateFilmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateFilmButtonActionPerformed
+        dBController.doUpdateToFilm(idFilmuUpdate.getText(), jmenoFilmuUpdate.getText(), rokUpdate.getText(),
+                reziserUpdate.getText(), popisUpdate.getText());
+    }//GEN-LAST:event_updateFilmButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -364,16 +381,17 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField idFilmuUpdate;
     private javax.swing.JButton insertFilmButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

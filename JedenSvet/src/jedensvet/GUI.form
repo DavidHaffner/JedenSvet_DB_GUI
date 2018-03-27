@@ -89,7 +89,6 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -97,16 +96,22 @@
                                   <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jmenoFilmuUpdate" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="rokUpdate" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="reziserUpdate" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="popisUpdate" alignment="0" pref="245" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jmenoFilmuUpdate" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="rokUpdate" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="reziserUpdate" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="popisUpdate" alignment="0" pref="245" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="updateFilmButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="idFilmuUpdate" min="-2" pref="93" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="updateFilmButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -169,19 +174,20 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idFilmuUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jmenoFilmuUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="rokUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="updateFilmButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="rokUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="updateFilmButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -193,7 +199,7 @@
                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                   <Component id="popisUpdate" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -370,14 +376,6 @@
         <Property name="text" type="java.lang.String" value="&#xda;prava &#xfa;daj&#x16f; o filmu:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="12" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="(ve Vyhled&#xe1;n&#xed; filmu mus&#xed; b&#xfd;t pouze jeden vybran&#xfd; film)"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -444,6 +442,24 @@
           <Font name="Dialog" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Zm&#x11b;nit z&#xe1;znam"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateFilmButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel18">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Id filmu:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="idFilmuUpdate">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>
