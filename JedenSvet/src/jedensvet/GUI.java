@@ -323,21 +323,9 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jmenoFilmuSelectActionPerformed
 
     private void selectFilmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFilmButtonActionPerformed
-        ResultSet vysledky = dBController.doSelectFromFilm(jmenoFilmuSelect.getText(), rokSelect.getText(),
+        String selectResult = dBController.doSelectFromFilm(jmenoFilmuSelect.getText(), rokSelect.getText(),
                 reziserSelect.getText(), popisSelect.getText());
-        
-        try {
-            while (vysledky.next()) {
-                String jmenoFilmu = vysledky.getString("jmeno_filmu");
-                String rok = vysledky.getString("rok");
-                String reziser = vysledky.getString("reziser");
-                String popis = vysledky.getString("popis");
-                vyhledaniFilmuResponse.setText("jméno filmu: " + jmenoFilmu + ", rok: "
-                        + rok + ", režisér: " + reziser + ", popis: " + popis + "\n");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        vyhledaniFilmuResponse.setText(selectResult); 
     }//GEN-LAST:event_selectFilmButtonActionPerformed
 
     /**

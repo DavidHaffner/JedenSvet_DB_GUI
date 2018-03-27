@@ -14,10 +14,8 @@ import java.sql.*;
 public class DBController implements IDBController {
 
     // zatím bez SQL Injection - tj. nebezpečný kód!
-    
     public final String DB_PATH = "jdbc:mysql://localhost:3306/jeden_svet?user=root&password=1111";
 
-    
     @Override
     public void doInsertToFilm(String jmenoFilmu, String rok, String reziser, String popis) {
 
@@ -36,75 +34,74 @@ public class DBController implements IDBController {
     }
 
     @Override
-    public ResultSet doSelectFromFilm(String jmenoFilmu, String rok, String reziser, String popis) {
+    public String doSelectFromFilm(String jmenoFilmu, String rok, String reziser, String popis) {
 
-        ResultSet vysledky = null;
-
-        // zabránění obalování "" (viz komplikace níže)   
         String queryText = "SELECT * FROM film WHERE 1";
+        String selectResult = "";
 
-        if ("".equals(jmenoFilmu)) {
-            queryText += " AND 1";
-        } else {
-            queryText += " AND jmeno_filmu = \"" + jmenoFilmu + "\"";
+        /* kód se brání SQL Injectionu
+        if (!"".equals(jmenoFilmu)) {
+            queryText += " AND jmeno_filmu =\"" + jmenoFilmu + "\"";
         }
-        if ("".equals(rok)) {
-            queryText += " AND 1";
-        } else {
-            queryText += " AND rok = \"" + rok + "\"";
+        if (!"".equals(rok)) {
+            queryText += " AND rok =\"" + rok + "\"";
         }
-        if ("".equals(reziser)) {
-            queryText += " AND 1";
-        } else {
-            queryText += " AND reziser = \"" + reziser + "\"";
+        if (!"".equals(reziser)) {
+            queryText += " AND reziser =\"" + reziser + "\"";
         }
-        if ("".equals(popis)) {
-            queryText += " AND 1;"; 
-        } else {
-            queryText += " AND popis = \"" + popis + "\";";
+        if (!"".equals(popis)) {
+            queryText += " AND popis =\"" + popis + "\"";
         }
+        queryText += ";";
+        */
 
+        // zabránění obalování "" - tj. obraně proti SQL Injectionu
+        int count = 0;
+        String [] selectParams = new String[4];
+        
+        if (!"".equals(jmenoFilmu)) {
+            queryText += " AND jmeno_filmu =?";
+            selectParams[count] = jmenoFilmu;
+            count++;
+        }
+        if (!"".equals(rok)) {
+            queryText += " AND rok =?";
+            selectParams[count] = rok;
+            count++;
+        }
+        if (!"".equals(reziser)) {
+            queryText += " AND reziser =?";
+            selectParams[count] = reziser;
+            count++;
+        }
+        if (!"".equals(popis)) {
+            queryText += " AND popis =?";
+            selectParams[count] = popis;
+            count++;
+        }
+        queryText += ";";
+        
         try (Connection spojeni = DriverManager.getConnection(DB_PATH);
                 PreparedStatement dotaz = spojeni.prepareStatement(queryText);) {
+                
+            for (int i=0; i<count; i++) {
+                dotaz.setString(i+1, selectParams[i]);
+            }
+            ResultSet vysledky = dotaz.executeQuery();
 
-            /* nefunkční: systém si vkládané hodnoty obaluje "" pro zabránění SQL Injection 
-        String text;   
-        if ("".equals(jmenoFilmu)) {   
-            text ="1";
-            dotaz.setString(1, text);   
-        } else {
-           text =" jmeno_filmu =" + jmenoFilmu;
-           dotaz.setString(1, text);
-        }
-        if ("".equals(rok)) { 
-           text ="1";
-           dotaz.setString(2, text);   
-        } else {
-           text =" rok =" + rok;
-           dotaz.setString(2, text);
-        }
-        if ("".equals(reziser)) { 
-           text ="1"; 
-           dotaz.setString(3, text);   
-        } else {
-           text =" reziser = " + reziser;
-           dotaz.setString(3, text);
-        }
-        if ("".equals(popis)) {   
-           text ="1"; 
-           dotaz.setString(4, text);   
-        } else {
-           text =" popis = " + popis;
-           dotaz.setString(4, text);
-        }
-             */
-            vysledky = dotaz.executeQuery();
+            while (vysledky.next()) {
+                selectResult += "jméno filmu: " + vysledky.getString("jmeno_filmu")
+                        + ", rok: " + vysledky.getString("rok")
+                        + ", režisér: " + vysledky.getString("reziser")
+                        + ", popis: " + vysledky.getString("popis")
+                        + "\n";
+            }
 
         } catch (SQLException ex) {
             System.out.println("Chyba při komunikaci s databází - select.");
         }
 
-        return vysledky;
+        return selectResult;
     }
 
     @Override
